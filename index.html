@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Dev Portfolio | Biology & Coding</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+   
+    />
+    <style>
+        :root {
+            --primary: #1a6340;
+            --secondary: #88c425;
+            --accent: #3d9970;
+            --light: #e8f5e9;
+            --dark: #1e3029;
+            --neuron: #9c27b0;
+            --dna: #2196f3;
+            --cell: #ff9800;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 25%;
+            bottom: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--secondary), transparent);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-img img {
+            width: 80%;
+            max-width: 400px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar {
+            margin-top: 2rem;
+        }
+
+        .skill {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-progress {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .progress-bar.molecular {
+            width: 85%;
+            background-color: var(--dna);
+        }
+
+        .progress-bar.neuro {
+            width: 75%;
+            background-color: var(--neuron);
+        }
+
+        .progress-bar.dev-bio {
+            width: 80%;
+            background-color: var(--cell);
+        }
+
+        .progress-bar.coding {
+            width: 65%;
+            background-color: var(--accent);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -17px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -17px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .date {
+            color: var(--secondary);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+       /* Projects Section */
+#projects {
+    position: relative; 
+    z-index: 5; 
+    background-color: var(--background, #f8f9fa);
+    padding: 3rem 0;
+     opacity: 1; 
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Added ease-in-out for smoother feel and included box-shadow in transition */
+}
+
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
+}
+
+.project-img {
+    height: 200px;
+    overflow: hidden; 
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease; /* Added ease timing */
+    display: block; /* Prevents potential small gap below image */
+}
+
+.project-card:hover .project-img img {
+    transform: scale(1.1);
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-content h3 {
+    /* color: var(--primary); */ /* Original line using potentially purple variable */
+    color: #333333; /* Example: Changed to dark grey */
+    margin-top: 0; /* Good practice to reset margin */
+    margin-bottom: 0.5rem;
+}
+
+.project-content .tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    gap: 0.5rem; /* Using gap is often cleaner than margin-right/bottom on children */
+}
+
+.tag {
+    padding: 0.3rem 0.8rem;
+    background-color: var(--light, #e9ecef); /* Added fallback for --light */
+    /* color: var(--primary); */ /* Original line using potentially purple variable */
+    color: #555555; /* Example: Changed to medium grey */
+    border-radius: 20px;
+    font-size: 0.8rem;
+    /* margin-right: 0.5rem; */ /* Replaced by gap on parent */
+    /* margin-bottom: 0.5rem; */ /* Replaced by gap on parent */
+}
+
+.project-links {
+    display: flex;
+    justify-content: space-between; /* This might push links far apart if only one exists */
+    /* Consider using `justify-content: flex-start;` and `gap: 1rem;` if you might have multiple links */
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.project-links a {
+    /* color: var(--primary); */ /* Original line using potentially purple variable */
+    color: #007bff; /* Example: Changed to blue */
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex; /* Use inline-flex for better alignment with icons */
+    align-items: center;
+    gap: 0.3em; /* Space between icon and text if you add one */
+    transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+    /* color: var(--secondary); */ /* Original line using potentially purple variable */
+    color: #0056b3; /* Example: Changed to darker blue */
+    text-decoration: underline; /* Add underline on hover for clarity */
+}
+
+
+
+
+
+
+        /* presentations Section */
+        .publications-list {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .publication-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+
+        .publication-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-item .authors {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-item .journal {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .publication-item .abstract {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .form-btn:hover {
+            background-color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(17, 62, 34, 0.1);
+            border-radius: 20%;
+            margin-right: 1rem;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .icon-gray:hover {
+        color: gray;
+        
+        }
+
+        .icon-gray {
+        color: green;
+        transition: color 0.3s ease;
+        }
+
+        /* Biology Theme Elements */
+        
+
+        .cell-division {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cell-division::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 152, 0, 0.05);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            z-index: -1;
+        }
+
+        .cell-division::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(255, 152, 0, 0.05);
+            border-radius: 50%;
+            top: -50px;
+            right: -30px;
+            z-index: -1;
+        }
+
+        .molecule-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            position: relative;
+            margin-right: 10px;
+        }
+
+        .molecule-icon::before,
+        .molecule-icon::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+        }
+        .contact{
+            margin-top: 25px;
+        }
+
+        .molecule-icon::before {
+            top: 5px;
+            left: 15px;
+        }
+
+        .molecule-icon::after {
+            bottom: 5px;
+            right: 15px;
+        }
+        .organization{
+            font-weight: bold;
+        }
+
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 15px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="dna-bg"></div>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon">
+                        <div class="molecule-icon"></div>
+                    </div>
+                    <span>tshrayansh</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#presentations">Presentations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hero">
+                <h1>Shrayansh Tiwari</h1>
+                <p>Undergraduate Biology Major with a passion for Molecular, Neuro, and Developmental Biology. Merging scientific knowledge with programming skills to explore new frontiers.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="cell-division">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="profile.jpeg" alt="Profile Image"  />
+                </div>
+                <div class="about-text">
+                   
+                    <p>Hello ! I’m a third-year BS-MS student with academic interests in molecular biology, neurogenetics, and computational biology. Over the past few semesters, I’ve built a strong foundation in core biology subjects , alongside hands-on training in important lab techniques.</p>
+
+                       <p> Beyond the lab, I actively explore the role of computational tools in biology. I’ve gained experience in Python, R, and C/C++, and I enjoy using programming for data analysis, automation, and scientific visualization. I’m also involved in student-led technical and academic initiatives — from helping manage coding clubs to organizing events that foster peer learning and research awareness.</p>
+                        
+                       <p> I’m currently focused on deepening my experimental and analytical skills. I'm particularly interested in how genetic and molecular mechanisms influence neural development and function, and I hope to pursue further opportunities in this space through research internships and collaborative projects.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">Jan 2025 - Present</span>
+                        <h3>Coordinator</h3>
+                        <p class="organization">Coding Club of IISER Coding Club of IISER Thiruvananthapuram <a href="https://snt-iiser-tvm.github.io/codingclub/index.html"> <i class="fas fa-external-link-alt icon-gray" ></i></a></p>
+                        <p> Managing projects and coordinating events</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">Dec 2024 - Present</span>
+                        <h3>Research Intern</h3>
+                        <p class="organization">Molecular Neurodevelopment Lab <a href="https://amruthaswaminathan.wixsite.com/molneurodev"> <i class="fas fa-external-link-alt icon-gray" ></i></a></p>
+                        <p>Working on understanding Zebrafish behavioural patterns and how it is affected by the complement factors. Learning data analysis, animal handling and designing experiments   </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">Jun 2024 - Sep 2024</span>
+                        <h3>Education and Outreach</h3>
+                        <p class="organization">iGEM IISER Thiruvananthapuram <a href="https://2024.igem.wiki/iiser-tvm/home"> <i class="fas fa-external-link-alt icon-gray" ></i></a></p>
+                        <p>Worked in the Education and Outreach team, mainly focusing on promoting synthetic biology and
+                            community engagement.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">Sep 2023 - Present</span>
+                        <h3>Member </h3>
+                        <p class="organization">Students' Cooperative Mess (SCoM)</p>
+                        <p>SCoM is a cooperative non-profit run by students to manage the mess at IISER Thiruvananthapuram. Worked in Finance management, Stores and café management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="neuron-bg">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="profile.jpeg" alt="Profile" />
+                    </div>
+                    <div class="project-content">
+                        <h3>Gene Expression Visualizer</h3>
+                        <p>Interactive web application to visualize gene expression data across different tissues and developmental stages.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Bioinformatics</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">View Project</a>
+                            <a href="#">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/320" alt="placeholder" />
+                    </div>
+                    <div class="project-content">
+                        <h3>Neural Network Model of Synaptic Plasticity</h3>
+                        <p>Computational model simulating synaptic plasticity mechanisms based on experimental data from the lab.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">Neuroscience</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">View Project</a>
+                            <a href="#">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/320" alt="placeholder" />
+                    </div>
+                    <div class="project-content">
+                        <h3>Embryonic Development Tracker</h3>
+                        <p>Tool for tracking and analyzing developmental patterns in embryos through image processing and machine learning.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">Dev Biology</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">View Project</a>
+                            <a href="#">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/320" alt="placeholder" />
+                    </div>
+                    <div class="project-content">
+                        <h3>Molecular Pathway Database</h3>
+                        <p>Web-based database of molecular pathways with interactive visualization features for educational purposes.</p>
+                        <div class="tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Mol Biology</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">View Project</a>
+                            <a href="#">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="presentations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Presentations</h2>
+            </div>
+            <div class="publications-list">
+                <div class="publication-item">
+                    <h3>Evolutionarily conserved role of oxytocin in social fear contagion in zebrafish <a href="https://drive.google.com/file/d/1oFnsNL7Jw0u_dQQBoUT1oRHe8sXoq1wI/view?usp=sharing"> <i class="fas fa-external-link-alt icon-gray" ></i></a>
+                         </h3>
+                     
+
+                    <p class="authors">Shrayansh Tiwari</p>
+                    <p class="journal"> Molecular Neurodevelopment Lab </p>
+                    <p class="abstract">Paper presentation on the evolutionarily conserved role of Oxytocin in Social fear contagion in zebrafish.</p>
+                </div>
+                
+                <div class="publication-item">
+                    <h3>Main Group Elements in Bioenergetics <a href="https://drive.google.com/drive/folders/1JGZGqpZlP3k8bfzdt457xOMUzmqiaYi4?usp=sharing"> <i class="fas fa-external-link-alt icon-gray" ></i></a></h3>
+                    <p class="authors">Shrayansh Tiwari, Chemical Society of IISER Thiruvananthapuram</p>
+                    <p class="journal">International Conference on
+                        Main Group Synthesis and Catalysis (2025) </p>
+                    <p class="abstract">Poster presentation on the role and importance of Main Group Elements in Bioenergetics.</p>
+                </div>
+                <div class="publication-item">
+                    <h3>The Mechanisms of Colour Vision: Cone Function, Arrangement, and Individual Variability in the Human Retina <a href="https://drive.google.com/drive/folders/1NTS1SCy6lEqoS2n27Y9fw70X9u22wnmI?usp=sharing"> <i class="fas fa-external-link-alt icon-gray" ></i></a> </h3>
+                    <p class="authors">Shrayansh Tiwari and group</p>
+                    <p class="journal">Physiology 313</p>
+                    <p class="abstract">Paper presentation on fundamental process of colour vision, how different wavelengths of light stimulate different wavelength-sensitive cones in the eye.</p>
+                </div>
+                <div class="publication-item">
+                    <h3>Science Communication</h3>
+                    <p class="authors">Shrayansh Tiwari and group</p>
+                    <p class="journal">Humanities 121</p>
+                    <p class="abstract">Created
+                        skit and educational video addressing the need of effective science communication </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p class="contact"> Shrayansh Twiari, 3rd year BS-MS Biology </p> <p>IISER Thiruvananthapuram</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Shrayansh Tiwari</h3>
+                    <p>Undergraduate Biology Major with a focus on Molecular, Neuro, and Developmental Biology. Combining scientific knowledge with programming skills.</p>
+                    <div class="social-links">
+                        <table cellspacing="0" cellpadding="0" style="margin: 0 auto;">
+                            <tr>
+                                <td style="padding: 0 15px;">
+                                    <a href="https://www.instagram.com/tshrayanshh/" target="_blank">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="30" height="30" />
+                                    </a>
+                                </td>
+                                <td style="padding: 0 15px;">
+                                    <a href="mailto:shrayanshhere@gmail.com" target="_blank">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/552/552486.png" alt="WhatsApp" width="30" height="30" />
+                                    </a>
+                                </td>
+                                <td style="padding: 0 15px;">
+                                    <a href="https://linkedin.com/in/tiwarishrayansh" target="_blank">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="30" height="30" />
+                                    </a>
+                                </td>
+                                <td style="padding: 0 15px;">
+                                    <a href="https://github.com/tshrayansh" target="_blank">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Github" width="30" height="30" />
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
